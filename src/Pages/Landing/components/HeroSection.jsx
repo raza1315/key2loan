@@ -1,25 +1,28 @@
-import React from 'react'
+import React from "react";
 
 function HeroSection() {
   return (
-    <div>
+    <div className="relative">
+      {/* radial bg absolute */}
+      {/* <div className="absolute bg-green-100 opacity-80 w-[600px] h-[210px] rounded-full blur-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-1 "></div> */}
+
       {/* Hero Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 z-10">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mt-16">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mt-28 z-100">
             Find the perfect <span className="text-[#21A26B]">business</span>{" "}
             <br className="hidden sm:block" />
             <span className="text-[#21A26B]">loan</span> for your growth
           </h1>
-          <p className="text-[#878D97] mb-8 max-w-xl mx-auto">
+          <p className="text-[#878D97] mb-8 mt-5 max-w-xl mx-auto">
             Certain aspects of your business might require extra financial
             support. We're here to help you grow.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-full sm:w-auto">
+            <button className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-full sm:w-auto z-10">
               Apply now
             </button>
-            <button className="border border-[#E2E8F0] text-gray-500 px-8 py-3 rounded-full hover:bg-gray-50 transition-colors w-full sm:w-auto">
+            <button className="border border-[#E2E8F0] text-gray-500 px-8 py-3 rounded-full hover:bg-gray-50 transition-colors w-full sm:w-auto z-10">
               Learn More
             </button>
           </div>
@@ -27,9 +30,9 @@ function HeroSection() {
       </section>
 
       {/* Calculator Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white z-10">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-semibold text-center mb-12">
+          <h2 className="text-3xl font-semibold text-center mb-12 z-10">
             Business Loan EMI Calculator
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -77,7 +80,7 @@ function HeroSection() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default HeroSection
+export default HeroSection;

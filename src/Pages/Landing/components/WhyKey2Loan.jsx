@@ -61,7 +61,7 @@ const steps = [
   },
 ];
 
-export function WhyKey2Loan() {
+export default function WhyKey2Loan() {
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       {/* Why Key2Loan Section */}

@@ -4,8 +4,9 @@ import Contactbar from "./components/Contactbar";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import Loantypesection from "./components/Loantypesection";
-import { About } from "./components/About";
-import { WhyKey2Loan } from "./components/WhyKey2Loan";
+import About from "./components/About";
+import WhyKey2Loan from "./components/WhyKey2Loan";
+import ChannelPartners from "./components/ChannelPartners";
 export default function Landing() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -28,7 +29,9 @@ export default function Landing() {
 
       {/* why key2loan */}
       <WhyKey2Loan />
-      
+
+      {/* Channel Partners */}
+      <ChannelPartners />
     </div>
   );
 }

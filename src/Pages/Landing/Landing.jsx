@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import Loantypesection from "./components/Loantypesection";
 import { About } from "./components/About";
+import { WhyKey2Loan } from "./components/WhyKey2Loan";
 export default function Landing() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -24,6 +25,10 @@ export default function Landing() {
 
       {/* Types of Loan */}
       <Loantypesection />
+
+      {/* why key2loan */}
+      <WhyKey2Loan />
+      
     </div>
   );
 }

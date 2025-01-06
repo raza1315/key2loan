@@ -29,25 +29,22 @@ export default function Navbar() {
     >
       <div className=" mx-auto  px-10 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <p className="flex items-center">
-              <img
-                src="/placeholder.svg"
-                alt="Key2Loan"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </p>
-
+          <div className="w-1/3">
+            <img
+              src="/key2loanlogo.png"
+              alt="Key2Loan"
+              className="h-10 w-auto scale-[1.65]"
+            />
+          </div>
+          <div className="flex items-center space-x-8 w-1/3">
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              <p className="text-gray-700 hover:text-gray-900 transition-colors">
+            <div className="hidden md:flex items-center space-x-6 font-medium">
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900 transition-colors">
                 Home
               </p>
               <div className="relative">
                 <button
-                  className="text-gray-700 hover:text-gray-900 flex items-center transition-colors"
+                  className="text-[#8C939C]  cursor-pointer hover:text-gray-900 flex items-center transition-colors"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
                   Services
@@ -69,29 +66,29 @@ export default function Navbar() {
                 </button>
                 {isServicesOpen && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
-                    <p className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">
+                    <p className="block px-4 py-2 text-[#8C939C]  cursor-pointer hover:bg-gray-100 transition-colors">
                       Service 1
                     </p>
-                    <p className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">
+                    <p className="block px-4 py-2 text-[#8C939C]  cursor-pointer hover:bg-gray-100 transition-colors">
                       Service 2
                     </p>
-                    <p className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">
+                    <p className="block px-4 py-2 text-[#8C939C]  cursor-pointer hover:bg-gray-100 transition-colors">
                       Service 3
                     </p>
                   </div>
                 )}
               </div>
-              <p className="text-gray-700 hover:text-gray-900 transition-colors">
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900 transition-colors">
                 About Us
               </p>
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6">
-            <p className="text-gray-700 hover:text-gray-900 transition-colors">
+          <div className="hidden md:flex items-center space-x-10 font-medium">
+            <p className="text-[#8C939C] cursor-pointer hover:text-gray-900 transition-colors">
               Become our partner
             </p>
-            <p className="text-gray-700 hover:text-gray-900 transition-colors">
+            <p className="text-[#8C939C] cursor-pointer hover:text-gray-900 transition-colors">
               Support
             </p>
             <p className="text-green-600">
@@ -126,13 +123,13 @@ export default function Navbar() {
         {isServicesOpen && (
           <div className="md:hidden mt-4 pb-4">
             <nav className="flex flex-col space-y-4">
-              <p className="text-gray-700 hover:text-gray-900">Home</p>
-              <p className="text-gray-700 hover:text-gray-900">Services</p>
-              <p className="text-gray-700 hover:text-gray-900">About Us</p>
-              <p className="text-gray-700 hover:text-gray-900">
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">Home</p>
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">Services</p>
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">About Us</p>
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
                 Become our partner
               </p>
-              <p className="text-gray-700 hover:text-gray-900">Support</p>
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">Support</p>
             </nav>
           </div>
         )}

@@ -4,6 +4,7 @@ import Contactbar from "./components/Contactbar";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import Loantypesection from "./components/Loantypesection";
+import { About } from "./components/About";
 export default function Landing() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -17,6 +18,9 @@ export default function Landing() {
 
       {/* Hero Section */}
       <HeroSection />
+
+      {/* About Section */}
+      <About />
 
       {/* Types of Loan */}
       <Loantypesection />

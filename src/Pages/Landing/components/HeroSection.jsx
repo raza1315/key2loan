@@ -9,7 +9,7 @@ function HeroSection() {
       {/* Hero Section */}
       <section className="py-16 px-4 z-10">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mt-28 z-100">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mt-28">
             Find the perfect <span className="text-[#21A26B]">business</span>{" "}
             <br className="hidden sm:block" />
             <span className="text-[#21A26B]">loan</span> for your growth

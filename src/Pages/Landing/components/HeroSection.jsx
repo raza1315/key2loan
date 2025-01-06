@@ -36,7 +36,7 @@ function HeroSection() {
             Business Loan EMI Calculator
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-[#E2E8F0]">
+            <div className="bg-white p-8 rounded-lg shadow-sm border border-[#E2E8F0] z-10">
               <div className="space-y-6">
                 <div>
                   <input
@@ -64,7 +64,7 @@ function HeroSection() {
                 </button>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-[#E2E8F0] flex items-center justify-center">
+            <div className="bg-white p-8 rounded-lg shadow-sm border border-[#E2E8F0] flex items-center justify-center z-10">
               <div className="w-48 h-48 relative">
                 <div className="absolute inset-0 bg-gradient-radial from-emerald-100 via-transparent to-transparent rounded-full"></div>
                 <img

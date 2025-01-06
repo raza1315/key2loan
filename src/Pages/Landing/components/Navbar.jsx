@@ -25,7 +25,7 @@ export default function Navbar() {
         isScrolled
           ? "fixed top-0 bg-white/80 backdrop-blur-md shadow-sm"
           : "relative bg-white"
-      } transition-all duration-300 z-999`}
+      } transition-all duration-300 z-50`}
     >
       <div className=" mx-auto  px-10 py-4">
         <div className="flex items-center justify-between">

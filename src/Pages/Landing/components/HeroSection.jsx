@@ -4,7 +4,7 @@ function HeroSection() {
   return (
     <div className="relative">
       {/* radial bg absolute */}
-      <div className="absolute bg-green-100 opacity-70 w-[600px] h-[210px] rounded-full blur-3xl top-[53%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-1 "></div>
+      <div className="sm:flex hidden absolute bg-green-100 opacity-70 w-[600px] h-[210px] rounded-full blur-3xl top-[53%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-1 "></div>
 
       {/* Hero Section */}
       <section className="py-16 px-4 z-10">

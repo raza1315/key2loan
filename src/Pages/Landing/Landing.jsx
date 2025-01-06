@@ -7,6 +7,7 @@ import Loantypesection from "./components/Loantypesection";
 import About from "./components/About";
 import WhyKey2Loan from "./components/WhyKey2Loan";
 import ChannelPartners from "./components/ChannelPartners";
+import TestimonialCarousel from "./components/TestimonialCarousel";
 export default function Landing() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -32,6 +33,9 @@ export default function Landing() {
 
       {/* Channel Partners */}
       <ChannelPartners />
+
+      {/* Testimonials */}
+      <TestimonialCarousel />
     </div>
   );
 }

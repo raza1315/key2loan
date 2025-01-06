@@ -8,9 +8,8 @@ import About from "./components/About";
 import WhyKey2Loan from "./components/WhyKey2Loan";
 import ChannelPartners from "./components/ChannelPartners";
 import TestimonialCarousel from "./components/TestimonialCarousel";
+import FAQs from "./components/FAQs";
 export default function Landing() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-white">
       {/* Top Contact Bar */}
@@ -36,6 +35,9 @@ export default function Landing() {
 
       {/* Testimonials */}
       <TestimonialCarousel />
+
+      {/* FAQs */}
+      {/* <FAQs /> */}
     </div>
   );
 }

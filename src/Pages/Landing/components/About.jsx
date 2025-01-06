@@ -59,20 +59,20 @@ const timeline = [
 
 export default function About() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
+    <section className="relative overflow-hidden py-24 sm:py-30">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4ade8030_1px,transparent_1px),linear-gradient(to_bottom,#4ade8030_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
       <div className="container relative mx-auto px-4 space-y-24">
         {/* Hero Section */}
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
           <div className="flex flex-col justify-center space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl">
                 Your Trusted Partner in{" "}
                 <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
                   Financial Growth
                 </span>
               </h1>
-              <p className="text-xl leading-relaxed text-gray-600">
+              <p className="text-lg leading-relaxed text-[#828993]">
                 Key2Loan was established in 2024 with the goal of bridging the
                 gap between lenders and borrowers. Our foundation is based on
                 facilitating the financial needs of businesses and individuals
@@ -84,7 +84,7 @@ export default function About() {
                 Learn More
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
-              <button className="h-12 px-6 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50">
+              <button className="h-12 px-6 border-[1.5px] border-gray-200 text-[#828993] rounded-md hover:bg-gray-50">
                 Contact Us
               </button>
             </div>
@@ -92,7 +92,7 @@ export default function About() {
           <div className="relative lg:mt-0">
             <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-emerald-500/20 blur-3xl"></div>
             <img
-              src="https://picsum.photos/600/400"
+              src="/businesspic.png"
               alt="Team at work"
               className="relative rounded-2xl shadow-2xl w-full h-auto"
             />
@@ -122,7 +122,7 @@ export default function About() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Our Core Values
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-[#828993]">
               The principles that guide us in providing exceptional financial
               services
             </p>
@@ -137,8 +137,8 @@ export default function About() {
                   <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
                     <value.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="mb-2 text-lg font-semibold text-[#585859]">{value.title}</h3>
+                  <p className="text-[#828993]">{value.description}</p>
                 </div>
               </div>
             ))}
@@ -151,7 +151,7 @@ export default function About() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Our Journey
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-[#828993]">
               The milestones that shaped our growth
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function About() {
                       {item.year}
                     </div>
                     <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                    <p className="text-[#828993]">{item.description}</p>
                   </div>
                   <div className="relative flex items-center">
                     <div className="absolute left-1/2 h-full w-0.5 -translate-x-1/2 bg-emerald-200"></div>

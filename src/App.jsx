@@ -1,14 +1,21 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Landing from './Pages/Landing/Landing';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./Pages/Landing/Landing";
+import Footer from "./Pages/Footer/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+        </Routes>
+      </BrowserRouter>
+
+      {/* Footer */}
+      <Footer />
+    </div>
   );
 }
 export default App;

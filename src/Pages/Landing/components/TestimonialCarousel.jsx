@@ -111,7 +111,7 @@ const TestimonialCarousel = () => {
   );
 
   return (
-    <div className="relative bg-white ">
+    <div className="relative bg-white sm:px-0 px-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-20">
           <h2 className="text-4xl font-bold text-[#21A26B] mb-4">

@@ -59,7 +59,7 @@ const timeline = [
 
 export default function About() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-30">
+    <section className="relative overflow-hidden py-24 sm:py-30 sm:px-0 px-2">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4ade8030_1px,transparent_1px),linear-gradient(to_bottom,#4ade8030_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
       <div className="container relative mx-auto px-4 space-y-24">
         {/* Hero Section */}

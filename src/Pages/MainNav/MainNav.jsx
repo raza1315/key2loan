@@ -36,7 +36,7 @@ export default function MainNav() {
               className="h-10 w-auto scale-[1.65]"
             />
             <p
-              className="text-[#8C939C] font-medium cursor-pointer hover:text-gray-900 transition-colors"
+              className="text-[#8C939C] font-medium cursor-pointer hover:text-gray-900 transition-colors sm:flex hidden"
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 navigate("/");
@@ -84,14 +84,14 @@ export default function MainNav() {
         {isServicesOpen && (
           <div className="md:hidden mt-4 pb-4">
             <nav className="flex flex-col space-y-4">
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
+              <p
+                className="text-[#8C939C]  cursor-pointer hover:text-gray-900"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  navigate("/");
+                }}
+              >
                 Home
-              </p>
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
-                Services
-              </p>
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
-                About Us
               </p>
               <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
                 Become our partner

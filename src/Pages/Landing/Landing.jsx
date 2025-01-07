@@ -1,6 +1,3 @@
-import { useState } from "react";
-// #8C939C font color
-import Contactbar from "./components/Contactbar";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import Loantypesection from "./components/Loantypesection";
@@ -12,8 +9,6 @@ import FAQ from "./components/FAQs";
 export default function Landing() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Top Contact Bar */}
-      <Contactbar />
 
       {/* Navigation */}
       <Navbar />

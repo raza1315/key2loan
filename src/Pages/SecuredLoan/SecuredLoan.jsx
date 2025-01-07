@@ -1,176 +1,243 @@
-'use client'
+import React, { useState } from "react";
+import MainNav from "../MainNav/MainNav";
 
-import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+export default function SecuredLoan() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
-const heroContents = [
-  {
-    title: (
-      <>
-        Find the perfect <span className="text-[#21A26B]">business</span>{" "}
-        <br className="hidden sm:block" />
-        <span className="text-[#21A26B]">loan</span> for your growth
-      </>
-    ),
-    description:
-      "Certain aspects of your business might require extra financial support. We're here to help you grow.",
-  },
-  {
-    title: (
-      <>
-        Unlock your business <span className="text-[#21A26B]">potential</span>{" "}
-        <br className="hidden sm:block" />
-        with our <span className="text-[#21A26B]">financial solutions</span>
-      </>
-    ),
-    description:
-      "Certain aspects of your business might require extra financial support. We're here to help you grow.",
-  },
-  {
-    title: (
-      <>
-        Empower your <span className="text-[#21A26B]">entrepreneurial</span>{" "}
-        <br className="hidden sm:block" />
-        <span className="text-[#21A26B]">journey</span> with us
-      </>
-    ),
-    description:
-      "Certain aspects of your business might require extra financial support. We're here to help you grow.",
-  },
-];
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-function HeroCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState('right');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % heroContents.length);
-      setDirection('right');
-    }, 5000); // Change slide every 5 seconds
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % heroContents.length);
-    setDirection('right');
+    setSubmitted(true);
+    setIsSubmitting(false);
+    setFormData({ name: "", email: "", phone: "" });
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + heroContents.length) % heroContents.length);
-    setDirection('left');
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
-    <div className="relative sm:px-0 px-2">
-      {/* radial bg absolute */}
-      <div className="sm:flex hidden absolute bg-green-100 opacity-70 w-[600px] h-[210px] rounded-full blur-3xl top-[53%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-1"></div>
+    <>
+      {/* Main Navbar */}
+      <MainNav />
 
-      {/* Hero Section */}
-      <section className="py-16 px-4 z-10 relative">
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="relative overflow-hidden h-[300px] sm:h-[360px]">
-            {heroContents.map((content, index) => (
-              <div
-                key={index}
-                className={`absolute w-full transition-all duration-500 ease-in-out ${
-                  index === currentSlide
-                    ? "opacity-100 translate-x-0"
-                    : index === (currentSlide - 1 + heroContents.length) % heroContents.length && direction === 'right'
-                    ? "opacity-0 -translate-x-full"
-                    : index === (currentSlide + 1) % heroContents.length && direction === 'left'
-                    ? "opacity-0 translate-x-full"
-                    : "opacity-0 translate-x-full"
-                }`}
-              >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mt-28 tracking-wide">
-                  {content.title}
-                </h1>
-                <p className="text-[#878D97] mb-8 mt-6 max-w-xl mx-auto">
-                  {content.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-            <button className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-full sm:w-auto z-10 cursor-pointer">
-              Apply now
-            </button>
-            <button className="bg-white border border-[#E2E8F0] text-gray-500 px-8 py-3 rounded-full hover:bg-gray-50 transition-colors w-full sm:w-auto z-10 cursor-pointer">
-              Learn More
-            </button>
+      <div className="max-w-4xl mx-auto p-6">
+        <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
+          <img
+            src="/placeholder.svg?height=256&width=896"
+            alt="Business people discussing secured loans"
+            layout="fill"
+            objectFit="cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#004D40]/80 to-transparent flex items-center">
+            <h1 className="text-4xl font-bold text-white ml-8">
+              Secured Business Loans
+            </h1>
           </div>
         </div>
-        <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between z-20">
-          <button
-            onClick={prevSlide}
-            className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
-          </button>
-        </div>
-      </section>
 
-      {/* Calculator Section */}
-      <section className="py-16 px-4 bg-white z-10">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-semibold text-center mb-12 z-10 tracking-wide">
-            Business Loan EMI Calculator
+        {/* Features & Benefits Section */}
+        <div className="mb-10">
+          <h2 className="text-2xl font-semibold text-[#004D40] mb-6">
+            Features & Benefits
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-[#E2E8F0] z-10">
-              <div className="space-y-6">
-                <div>
-                  <input
-                    type="number"
-                    placeholder="Loan Amount"
-                    className="w-full px-4 py-3 font-semibold rounded-md border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    placeholder="Annual Interest Rate"
-                    className="w-full px-4 py-3 font-semibold rounded-md border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    placeholder="Loan Tenure (In Months)"
-                    className="w-full px-4 py-3 font-semibold rounded-md border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                  />
-                </div>
-                <button className="w-full bg-emerald-600 text-[#CCE4DA] px-8 py-3 rounded-md hover:bg-emerald-700 transition-colors">
-                  Calculate EMI
-                </button>
-              </div>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-[#E2E8F0] flex items-center justify-center z-10">
-              <div className="w-48 h-48 relative">
-                <div className="absolute inset-0 bg-gradient-radial from-emerald-100 via-transparent to-transparent rounded-full"></div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-[#00A67E]/20">
+              <div className="w-16 h-16 mb-4 relative">
                 <img
-                  src="/placeholder.svg"
-                  alt="EMI Calculator"
-                  width={192}
-                  height={192}
-                  className="w-full h-full"
+                  src="/placeholder.svg?height=64&width=64"
+                  alt="Higher Loan Amount"
+                  layout="fill"
+                  objectFit="contain"
                 />
               </div>
+              <h3 className="text-lg font-semibold text-[#00A67E] mb-2">
+                Higher Loan Amount
+              </h3>
+              <p className="text-gray-700">
+                Enables access to higher loan sums based on collateral
+                stipulations
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-[#00A67E]/20">
+              <div className="w-16 h-16 mb-4 relative">
+                <img
+                  src="/placeholder.svg?height=64&width=64"
+                  alt="Lower Interest Rate"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-[#00A67E] mb-2">
+                Lower Interest Rate
+              </h3>
+              <p className="text-gray-700">
+                Generally presents reduced interest rates compared to loans
+                without security
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-[#00A67E]/20">
+              <div className="w-16 h-16 mb-4 relative">
+                <img
+                  src="/placeholder.svg?height=64&width=64"
+                  alt="Quick Disbursement"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-[#00A67E] mb-2">
+                Quick Disbursement
+              </h3>
+              <p className="text-gray-700">
+                Facilitating immediate access to funds within 7 business days
+              </p>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* Eligibility Criteria Section */}
+        <div className="bg-[#004D40] text-white rounded-lg p-8 mb-10 relative overflow-hidden">
+          <div className="relative z-10">
+            <h2 className="text-2xl font-semibold mb-6">
+              Eligibility Criteria
+            </h2>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#00A67E] rounded-full"></div>
+                <span>
+                  Collateral Required: Any kind of fixed assets including plots
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#00A67E] rounded-full"></div>
+                <span>Age: Borrower should be aged between 21-70</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#00A67E] rounded-full"></div>
+                <span>Credit Score Required: Upto 750</span>
+              </li>
+            </ul>
+          </div>
+          <div className="absolute right-0 bottom-0 w-40 h-40 opacity-10">
+            <img
+              src="/placeholder.svg?height=160&width=160"
+              alt="Eligibility"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        </div>
+
+        {/* Application Form */}
+        <div className="bg-white rounded-lg p-8 shadow-lg border border-[#00A67E]/20">
+          <h2 className="text-2xl font-semibold text-[#004D40] mb-6">
+            Apply Now
+          </h2>
+
+          {submitted ? (
+            <div className="text-center py-8">
+              <div className="w-24 h-24 mx-auto mb-4 relative">
+                <img
+                  src="/placeholder.svg?height=96&width=96"
+                  alt="Success"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <div className="text-[#00A67E] text-lg font-semibold mb-2">
+                Thank you for your application!
+              </div>
+              <p className="text-gray-600">
+                We will contact you shortly to discuss your secured loan
+                requirements.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A67E] focus:border-transparent outline-none transition-colors"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A67E] focus:border-transparent outline-none transition-colors"
+                  placeholder="Enter your email address"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A67E] focus:border-transparent outline-none transition-colors"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-[#00A67E] text-white px-8 py-3 rounded-lg hover:bg-[#00A67E]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Submitting..." : "Submit Application"}
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
-
-export default HeroCarousel;
-

@@ -9,7 +9,7 @@ function HeroSection() {
       {/* Hero Section */}
       <section className="py-16 px-4 z-10">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mt-28">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mt-28 tracking-wide">
             Find the perfect <span className="text-[#21A26B]">business</span>{" "}
             <br className="hidden sm:block" />
             <span className="text-[#21A26B]">loan</span> for your growth
@@ -32,7 +32,7 @@ function HeroSection() {
       {/* Calculator Section */}
       <section className="py-16 px-4 bg-white z-10">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-semibold text-center mb-12 z-10">
+          <h2 className="text-3xl font-semibold text-center mb-12 z-10 tracking-wide">
             Business Loan EMI Calculator
           </h2>
           <div className="grid md:grid-cols-2 gap-8">

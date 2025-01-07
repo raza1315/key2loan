@@ -8,7 +8,7 @@ import About from "./components/About";
 import WhyKey2Loan from "./components/WhyKey2Loan";
 import ChannelPartners from "./components/ChannelPartners";
 import TestimonialCarousel from "./components/TestimonialCarousel";
-import FAQs from "./components/FAQs";
+import FAQ from "./components/FAQs";
 export default function Landing() {
   return (
     <div className="min-h-screen bg-white">
@@ -30,14 +30,14 @@ export default function Landing() {
       {/* why key2loan */}
       <WhyKey2Loan />
 
+      {/* FAQs */}
+      <FAQ />
+
       {/* Channel Partners */}
       <ChannelPartners />
 
       {/* Testimonials */}
       <TestimonialCarousel />
-
-      {/* FAQs */}
-      {/* <FAQs /> */}
     </div>
   );
 }

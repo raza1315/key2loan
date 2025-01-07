@@ -153,7 +153,9 @@ export default function Navbar({ scrollToAbout, scrollToLoanType }) {
               >
                 About Us
               </p>
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900"
+              onClick={() => navigate("/apply")}
+              >
                 Become our partner
               </p>
               <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">

@@ -1,5 +1,7 @@
+'use client'
+
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const heroContents = [
   {
@@ -22,7 +24,7 @@ const heroContents = [
       </>
     ),
     description:
-      "The Smarter Way to Borrow: Lowest Interest, Maximum Benefit..",
+      "Certain aspects of your business might require extra financial support. We're here to help you grow.",
   },
   {
     title: (
@@ -32,18 +34,19 @@ const heroContents = [
         <span className="text-[#21A26B]">journey</span> with us
       </>
     ),
-    description: "Empowering Your Business with the Right Financial Support",
+    description:
+      "Certain aspects of your business might require extra financial support. We're here to help you grow.",
   },
 ];
 
 function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState("right");
+  const [direction, setDirection] = useState('right');
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % heroContents.length);
-      setDirection("right");
+      setDirection('right');
     }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(timer);
@@ -51,20 +54,18 @@ function HeroCarousel() {
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % heroContents.length);
-    setDirection("right");
+    setDirection('right');
   };
 
   const prevSlide = () => {
-    setCurrentSlide(
-      (prevSlide) => (prevSlide - 1 + heroContents.length) % heroContents.length
-    );
-    setDirection("left");
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + heroContents.length) % heroContents.length);
+    setDirection('left');
   };
 
   return (
     <div className="relative sm:px-0 px-2">
       {/* radial bg absolute */}
-      <div className="sm:flex hidden absolute bg-green-100 opacity-70 w-[650px] mt-10 h-[210px] rounded-full blur-3xl top-[53%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-1"></div>
+      <div className="sm:flex hidden absolute bg-green-100 opacity-70 w-[600px] h-[210px] rounded-full blur-3xl top-[53%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-1"></div>
 
       {/* Hero Section */}
       <section className="py-16 px-4 z-10 relative">
@@ -76,12 +77,9 @@ function HeroCarousel() {
                 className={`absolute w-full transition-all duration-500 ease-in-out ${
                   index === currentSlide
                     ? "opacity-100 translate-x-0"
-                    : index ===
-                        (currentSlide - 1 + heroContents.length) %
-                          heroContents.length && direction === "right"
+                    : index === (currentSlide - 1 + heroContents.length) % heroContents.length && direction === 'right'
                     ? "opacity-0 -translate-x-full"
-                    : index === (currentSlide + 1) % heroContents.length &&
-                      direction === "left"
+                    : index === (currentSlide + 1) % heroContents.length && direction === 'left'
                     ? "opacity-0 translate-x-full"
                     : "opacity-0 translate-x-full"
                 }`}
@@ -107,15 +105,15 @@ function HeroCarousel() {
         <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between z-20">
           <button
             onClick={prevSlide}
-            className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors sm:ml-16 ml-0"
+            className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors"
           >
             <ChevronLeft className="w-6 h-6 text-gray-600" />
           </button>
           <button
             onClick={nextSlide}
-            className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors sm:mr-16 mr-0"
+            className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors"
           >
-            <ChevronRight className="w-6 h-6 text-gray-600 " />
+            <ChevronRight className="w-6 h-6 text-gray-600" />
           </button>
         </div>
       </section>
@@ -175,3 +173,4 @@ function HeroCarousel() {
 }
 
 export default HeroCarousel;
+

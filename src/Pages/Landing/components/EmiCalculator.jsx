@@ -70,11 +70,11 @@ export default function EmiCalculator() {
 
   return (
     <section className="pb-16 pt-6 px-4 bg-white">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-7xl">
         <h2 className="text-3xl font-semibold text-center mb-12 tracking-wide">
           EMI Calculator
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Input Card */}
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 z-10">
             <div className="space-y-6">
@@ -143,61 +143,69 @@ export default function EmiCalculator() {
           {/* Results Card */}
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 z-10">
             {result ? (
-              <div className="space-y-6">
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={getPieChartData()}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={80}
-                        paddingAngle={5}
-                        dataKey="value"
-                      >
-                        {getPieChartData().map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index]} />
-                        ))}
-                      </Pie>
-                      <Tooltip 
-                        formatter={(value) => formatCurrency(value)}
-                      />
-                    </PieChart>
-                  </ResponsiveContainer>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                  <span className="text-sm font-medium">Monthly EMI:</span>
+                  <span className="text-lg font-semibold text-emerald-600">
+                    {formatCurrency(result.monthlyEMI)}
+                  </span>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
-                    <span className="text-sm font-medium">Monthly EMI:</span>
-                    <span className="text-lg font-semibold text-emerald-600">
-                      {formatCurrency(result.monthlyEMI)}
-                    </span>
+                <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                  <span className="text-sm font-medium">Total Amount Payable:</span>
+                  <span className="text-lg font-semibold text-emerald-600">
+                    {formatCurrency(result.totalAmount)}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center p-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[0] }} />
+                    <span className="text-sm">Principal Amount</span>
                   </div>
-                  <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
-                    <span className="text-sm font-medium">Total Amount Payable:</span>
-                    <span className="text-lg font-semibold text-emerald-600">
-                      {formatCurrency(result.totalAmount)}
-                    </span>
+                  <span className="font-medium">{formatCurrency(result.principalAmount)}</span>
+                </div>
+                <div className="flex justify-between items-center p-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[1] }} />
+                    <span className="text-sm">Total Interest</span>
                   </div>
-                  <div className="flex justify-between items-center p-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[0] }} />
-                      <span className="text-sm">Principal Amount</span>
-                    </div>
-                    <span className="font-medium">{formatCurrency(result.principalAmount)}</span>
-                  </div>
-                  <div className="flex justify-between items-center p-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[1] }} />
-                      <span className="text-sm">Total Interest</span>
-                    </div>
-                    <span className="font-medium">{formatCurrency(result.totalInterest)}</span>
-                  </div>
+                  <span className="font-medium">{formatCurrency(result.totalInterest)}</span>
                 </div>
               </div>
             ) : (
               <div className="h-full flex items-center justify-center text-gray-500">
                 Enter loan details to see the breakdown
+              </div>
+            )}
+          </div>
+
+          {/* Pie Chart Card */}
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 z-10">
+            {result ? (
+              <div className="h-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={getPieChartData()}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={60}
+                      outerRadius={80}
+                      paddingAngle={5}
+                      dataKey="value"
+                    >
+                      {getPieChartData().map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                      ))}
+                    </Pie>
+                    <Tooltip 
+                      formatter={(value) => formatCurrency(value)}
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <div className="h-full flex items-center justify-center text-gray-500">
+                Enter loan details to see the chart
               </div>
             )}
           </div>

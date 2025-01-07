@@ -61,7 +61,7 @@ const steps = [
   },
 ];
 
-export default function WhyKey2Loan() {
+export default function WhyKey2Loan({scrollToLoanType}) {
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       {/* Why Key2Loan Section */}
@@ -125,7 +125,9 @@ export default function WhyKey2Loan() {
         <button className="px-8 py-3 bg-[#18A449] text-white rounded-full hover:bg-emerald-600 transition-colors cursor-pointer">
           Get Started
         </button>
-        <button className="px-8 py-3 border-2 border-[#18A449] text-emerald-500 rounded-full hover:bg-emerald-50 transition-colors cursor-pointer">
+        <button className="px-8 py-3 border-2 border-[#18A449] text-emerald-500 rounded-full hover:bg-emerald-50 transition-colors cursor-pointer"
+        onClick={scrollToLoanType}
+        >
           Learn More
         </button>
       </div>

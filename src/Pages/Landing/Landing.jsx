@@ -8,27 +8,30 @@ import TestimonialCarousel from "./components/TestimonialCarousel";
 import FAQ from "./components/FAQs";
 import { useRef } from "react";
 export default function Landing() {
-  const aboutRef=useRef(null);
+  const aboutRef = useRef(null);
+  const loanTypeRef = useRef(null);
   const scrollToAbout = () => {
     aboutRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToLoanType = () => {
+    loanTypeRef.current.scrollIntoView({ behavior: "smooth" });
   }
   return (
     <div className="min-h-screen bg-white">
-
       {/* Navigation */}
-      <Navbar scrollToAbout={scrollToAbout} />
+      <Navbar scrollToAbout={scrollToAbout}/>
 
       {/* Hero Section */}
-      <HeroSection />
-
-      {/* About Section */}
-      <About aboutRef={aboutRef}/>
+      <HeroSection  scrollToLoanType={scrollToLoanType} />
 
       {/* Types of Loan */}
-      <Loantypesection />
+      <Loantypesection loanTypeRef={loanTypeRef} />
+
+      {/* About Section */}
+      <About aboutRef={aboutRef}  scrollToLoanType={scrollToLoanType}/>
 
       {/* why key2loan */}
-      <WhyKey2Loan />
+      <WhyKey2Loan  scrollToLoanType={scrollToLoanType}/>
 
       {/* FAQs */}
       <FAQ />

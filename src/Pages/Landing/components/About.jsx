@@ -57,9 +57,12 @@ const timeline = [
   },
 ];
 
-export default function About({aboutRef}) {
+export default function About({ aboutRef, scrollToLoanType }) {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-30 sm:px-0 px-2" ref={aboutRef}>
+    <section
+      className="relative overflow-hidden py-24 sm:py-30 sm:px-0 px-2"
+      ref={aboutRef}
+    >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4ade8030_1px,transparent_1px),linear-gradient(to_bottom,#4ade8030_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
       <div className="container relative mx-auto px-4 space-y-24">
         {/* Hero Section */}
@@ -80,7 +83,10 @@ export default function About({aboutRef}) {
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              <button className="group h-12 bg-emerald-600 px-6 hover:bg-emerald-700 text-white rounded-md flex items-center justify-center">
+              <button
+                className="group h-12 bg-emerald-600 px-6 hover:bg-emerald-700 text-white rounded-md flex items-center justify-center"
+                onClick={scrollToLoanType}
+              >
                 Learn More
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
@@ -137,7 +143,9 @@ export default function About({aboutRef}) {
                   <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
                     <value.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold text-[#585859]">{value.title}</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-[#585859]">
+                    {value.title}
+                  </h3>
                   <p className="text-[#828993]">{value.description}</p>
                 </div>
               </div>
@@ -198,7 +206,10 @@ export default function About({aboutRef}) {
               <button className="h-12 rounded-full px-8 bg-white text-emerald-600 hover:bg-gray-100 transition-colors">
                 Get Started
               </button>
-              <button className="h-12 rounded-full px-8 border border-white text-white hover:bg-white hover:text-emerald-600 transition-colors">
+              <button
+                className="h-12 rounded-full px-8 border border-white text-white hover:bg-white hover:text-emerald-600 transition-colors"
+                onClick={scrollToLoanType}
+              >
                 Learn More
               </button>
             </div>

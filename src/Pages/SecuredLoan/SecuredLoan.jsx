@@ -182,7 +182,7 @@ export default function SecuredLoan() {
               {[
                 "Collateral Required: Any kind of fixed assets including plots",
                 "Age: Borrower should be aged between 21-70",
-                "Credit Score Required: Up to 750",
+                "Credit Score Required: Minimum 750",
               ].map((criterion, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-6 h-6 text-white" />

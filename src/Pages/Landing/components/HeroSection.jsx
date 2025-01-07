@@ -37,7 +37,7 @@ const heroContents = [
   },
 ];
 
-function HeroCarousel() {
+function HeroSection({ scrollToLoanType }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState("right");
 
@@ -100,7 +100,9 @@ function HeroCarousel() {
             <button className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-full sm:w-auto z-10 cursor-pointer">
               Apply now
             </button>
-            <button className="bg-white border border-[#E2E8F0] text-gray-500 px-8 py-3 rounded-full hover:bg-gray-50 transition-colors w-full sm:w-auto z-10 cursor-pointer">
+            <button className="bg-white border border-[#E2E8F0] text-gray-500 px-8 py-3 rounded-full hover:bg-gray-50 transition-colors w-full sm:w-auto z-10 cursor-pointer"
+            onClick={scrollToLoanType}
+            >
               Learn More
             </button>
           </div>
@@ -127,4 +129,4 @@ function HeroCarousel() {
   );
 }
 
-export default HeroCarousel;
+export default HeroSection;

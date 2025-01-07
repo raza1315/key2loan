@@ -33,7 +33,7 @@ const loanTypes = [
   },
 ];
 
-function Loantypesection() {
+function Loantypesection({loanTypeRef}) {
   const navigate = useNavigate();
   const changeRoute = (loanType) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -44,7 +44,7 @@ function Loantypesection() {
     }
   };
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32 sm:px-0 px-2">
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32 sm:px-0 px-2" ref={loanTypeRef}>
       <div className="container relative z-10 mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">

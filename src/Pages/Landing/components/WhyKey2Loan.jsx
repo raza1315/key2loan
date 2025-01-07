@@ -1,11 +1,4 @@
-import {
-  Building2,
-  Percent,
-  Wallet,
-  Shield,
-  FileText,
-  Laptop,
-} from "lucide-react";
+import { Building2, Percent, Wallet, Shield, FileText, Laptop, ArrowRight } from 'lucide-react';
 
 const features = [
   {
@@ -98,11 +91,11 @@ export default function WhyKey2Loan({scrollToLoanType}) {
         </h2>
       </div>
 
-      {/* Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-        {steps.map((step) => (
-          <div key={step.number} className="text-center">
-            <div className="relative w-48 h-48 mx-auto mb-6">
+      {/* Steps with Arrows */}
+      <div className="flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto mb-16 relative">
+        {steps.map((step, index) => (
+          <div key={step.number} className="text-center flex-1 relative">
+            <div className="relative w-48 h-48 mx-auto sm:mb-6 mb-4 sm:mt-0 mt-6">
               <img
                 src={step.image}
                 alt={step.title}
@@ -116,6 +109,12 @@ export default function WhyKey2Loan({scrollToLoanType}) {
               {step.title}
             </h3>
             <p className="text-[#90969E]">{step.description}</p>
+            
+            {index < steps.length - 1 && (
+              <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                <ArrowRight className="w-8 h-8 text-emerald-500" />
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -125,8 +124,9 @@ export default function WhyKey2Loan({scrollToLoanType}) {
         <button className="px-8 py-3 bg-[#18A449] text-white rounded-full hover:bg-emerald-600 transition-colors cursor-pointer">
           Get Started
         </button>
-        <button className="px-8 py-3 border-2 border-[#18A449] text-emerald-500 rounded-full hover:bg-emerald-50 transition-colors cursor-pointer"
-        onClick={scrollToLoanType}
+        <button 
+          className="px-8 py-3 border-2 border-[#18A449] text-emerald-500 rounded-full hover:bg-emerald-50 transition-colors cursor-pointer"
+          onClick={scrollToLoanType}
         >
           Learn More
         </button>
@@ -134,3 +134,4 @@ export default function WhyKey2Loan({scrollToLoanType}) {
     </div>
   );
 }
+

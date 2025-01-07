@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import EmiCalculator from "./EmiCalculator";
 
 const heroContents = [
   {
@@ -64,7 +65,7 @@ function HeroCarousel() {
   return (
     <div className="relative sm:px-0 px-2">
       {/* radial bg absolute */}
-      <div className="sm:flex hidden absolute bg-green-100 opacity-70 w-[650px] mt-10 h-[210px] rounded-full blur-3xl top-[53%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-1"></div>
+      <div className="sm:flex hidden absolute bg-green-100 opacity-70 w-[650px] mt-10 h-[210px] rounded-full blur-3xl top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-1"></div>
 
       {/* Hero Section */}
       <section className="py-16 px-4 z-10 relative">
@@ -121,55 +122,7 @@ function HeroCarousel() {
       </section>
 
       {/* Calculator Section */}
-      <section className="pb-16 pt-6 px-4 bg-white z-10">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-semibold text-center mb-12 z-10 tracking-wide">
-            Business Loan EMI Calculator
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-[#E2E8F0] z-10">
-              <div className="space-y-6">
-                <div>
-                  <input
-                    type="number"
-                    placeholder="Loan Amount"
-                    className="w-full px-4 py-3 font-semibold rounded-md border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    placeholder="Annual Interest Rate"
-                    className="w-full px-4 py-3 font-semibold rounded-md border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    placeholder="Loan Tenure (In Months)"
-                    className="w-full px-4 py-3 font-semibold rounded-md border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                  />
-                </div>
-                <button className="w-full bg-emerald-600 text-[#CCE4DA] px-8 py-3 rounded-md hover:bg-emerald-700 transition-colors">
-                  Calculate EMI
-                </button>
-              </div>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-[#E2E8F0] flex items-center justify-center z-10">
-              <div className="w-48 h-48 relative">
-                <div className="absolute inset-0 bg-gradient-radial from-emerald-100 via-transparent to-transparent rounded-full"></div>
-                <img
-                  src="/placeholder.svg"
-                  alt="EMI Calculator"
-                  width={192}
-                  height={192}
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EmiCalculator />
     </div>
   );
 }

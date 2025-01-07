@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, DollarSign, Percent, Clock } from "lucide-react";
 import MainNav from "../MainNav/MainNav";
 export default function SecuredLoan() {
   const [formData, setFormData] = useState({
@@ -59,32 +59,33 @@ export default function SecuredLoan() {
             {[
               {
                 title: "Higher Loan Amount",
-                description: "Access higher loan sums based on collateral stipulations",
-                image: "https://picsum.photos/200/200?random=1"
+                description:
+                  "Access higher loan sums based on collateral stipulations",
+                icon: DollarSign,
               },
               {
                 title: "Lower Interest Rate",
-                description: "Reduced interest rates compared to unsecured loans",
-                image: "https://picsum.photos/200/200?random=2"
+                description:
+                  "Reduced interest rates compared to unsecured loans",
+                icon: Percent,
               },
               {
                 title: "Quick Disbursement",
                 description: "Get funds within 7 business days",
-                image: "https://picsum.photos/200/200?random=3"
-              }
+                icon: Clock,
+              },
             ].map((feature, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-lg border border-[#21A26B]/20 transition-all hover:shadow-xl hover:-translate-y-1">
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-16 h-16 mb-4 rounded-full object-cover"
-                />
+              <div
+                key={index}
+                className="bg-white rounded-lg p-6 shadow-lg border border-[#21A26B]/20 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col items-center text-center"
+              >
+                <div className="w-16 h-16 mb-4 rounded-full bg-[#21A26B]/10 flex items-center justify-center">
+                  <feature.icon className="w-8 h-8 text-[#21A26B]" />
+                </div>
                 <h3 className="text-xl font-semibold text-[#21A26B] mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-[#90969E]">
-                  {feature.description}
-                </p>
+                <p className="text-[#90969E]">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -100,7 +101,7 @@ export default function SecuredLoan() {
               {[
                 "Collateral Required: Any kind of fixed assets including plots",
                 "Age: Borrower should be aged between 21-70",
-                "Credit Score Required: Up to 750"
+                "Credit Score Required: Up to 750",
               ].map((criterion, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-6 h-6 text-white" />
@@ -137,15 +138,31 @@ export default function SecuredLoan() {
                 Thank you for your application!
               </div>
               <p className="text-gray-600 text-lg">
-                We will contact you shortly to discuss your secured loan requirements.
+                We will contact you shortly to discuss your secured loan
+                requirements.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               {[
-                { name: "name", label: "Full Name", type: "text", placeholder: "Enter your full name" },
-                { name: "email", label: "Email Address", type: "email", placeholder: "Enter your email address" },
-                { name: "phone", label: "Phone Number", type: "tel", placeholder: "Enter your phone number" }
+                {
+                  name: "name",
+                  label: "Full Name",
+                  type: "text",
+                  placeholder: "Enter your full name",
+                },
+                {
+                  name: "email",
+                  label: "Email Address",
+                  type: "email",
+                  placeholder: "Enter your email address",
+                },
+                {
+                  name: "phone",
+                  label: "Phone Number",
+                  type: "tel",
+                  placeholder: "Enter your phone number",
+                },
               ].map((field) => (
                 <div key={field.name}>
                   <label
@@ -181,4 +198,3 @@ export default function SecuredLoan() {
     </div>
   );
 }
-

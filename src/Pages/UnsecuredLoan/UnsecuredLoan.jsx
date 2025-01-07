@@ -29,6 +29,7 @@ export default function SecuredLoan() {
 
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log(formData);
 
     setSubmitted(true);
     setIsSubmitting(false);

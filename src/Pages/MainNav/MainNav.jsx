@@ -33,7 +33,7 @@ export default function MainNav() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 navigate("/");
               }}
-              src="/key2loanlogo.jpeg"
+              src="/key2loanlogo.png"
               alt="Key2Loan"
               className="h-10 w-auto scale-[1.65]"
             />

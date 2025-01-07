@@ -44,7 +44,7 @@ function HeroCarousel() {
     const timer = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % heroContents.length);
       setDirection("right");
-    }, 5000); // Change slide every 5 seconds
+    }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(timer);
   }, []);

@@ -1,10 +1,10 @@
-"use client";
-
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,16 +21,16 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`w-full border-b border-gray-200 ${
-        isScrolled
-          ? "fixed top-0 bg-white/80 backdrop-blur-md shadow-sm"
-          : "relative bg-white"
-      } transition-all duration-300 z-50`}
+      className={`w-full border-b border-gray-200 sticky top-0 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300 z-50`}
     >
       <div className=" mx-auto  px-10 py-4">
         <div className="flex items-center justify-between">
           <div className="w-1/3">
             <img
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                navigate("/");
+              }}
               src="/key2loanlogo.png"
               alt="Key2Loan"
               className="h-10 w-auto scale-[1.65]"
@@ -123,13 +123,21 @@ export default function Navbar() {
         {isServicesOpen && (
           <div className="md:hidden mt-4 pb-4">
             <nav className="flex flex-col space-y-4">
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">Home</p>
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">Services</p>
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">About Us</p>
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
+                Home
+              </p>
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
+                Services
+              </p>
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
+                About Us
+              </p>
               <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
                 Become our partner
               </p>
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">Support</p>
+              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
+                Support
+              </p>
             </nav>
           </div>
         )}

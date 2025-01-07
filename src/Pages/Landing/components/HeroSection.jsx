@@ -95,7 +95,7 @@ function HeroCarousel() {
               </div>
             ))}
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
             <button className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-full sm:w-auto z-10 cursor-pointer">
               Apply now
             </button>
@@ -121,7 +121,7 @@ function HeroCarousel() {
       </section>
 
       {/* Calculator Section */}
-      <section className="py-16 px-4 bg-white z-10">
+      <section className="pb-16 pt-6 px-4 bg-white z-10">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-semibold text-center mb-12 z-10 tracking-wide">
             Business Loan EMI Calculator

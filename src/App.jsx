@@ -5,6 +5,7 @@ import SecuredLoan from "./Pages/SecuredLoan/SecuredLoan";
 import Footer from "./Pages/Footer/Footer";
 import Contactbar from "./Pages/Landing/components/Contactbar";
 import UnSecuredLoan from "./Pages/UnsecuredLoan/UnsecuredLoan";
+import Form from "./Pages/FormPage/Form";
 function App() {
   return (
     <div>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/securedLoan" element={<SecuredLoan />} />
           <Route path="/unsecuredLoan" element={<UnSecuredLoan />} />
+          <Route path="/apply" element={<Form/>} />
         </Routes>
       </BrowserRouter>
 

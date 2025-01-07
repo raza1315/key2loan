@@ -90,7 +90,9 @@ export default function Navbar({ scrollToAbout }) {
           </div>
 
           <div className="hidden md:flex items-center space-x-10 font-medium">
-            <p className="text-[#8C939C] cursor-pointer hover:text-gray-900 transition-colors">
+            <p className="text-[#8C939C] cursor-pointer hover:text-gray-900 transition-colors"
+            onClick={() => navigate("/apply")}
+            >
               Become our partner
             </p>
             <p className="text-[#8C939C] cursor-pointer hover:text-gray-900 transition-colors">

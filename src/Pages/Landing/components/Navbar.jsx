@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Navbar({ scrollToAbout }) {
+export default function Navbar({ scrollToAbout, scrollToLoanType }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const navigate = useNavigate();
@@ -141,8 +141,11 @@ export default function Navbar({ scrollToAbout }) {
               <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
                 Home
               </p>
-              <p className="text-[#8C939C]  cursor-pointer hover:text-gray-900">
-                Services
+              <p
+                className="text-[#8C939C]  cursor-pointer hover:text-gray-900"
+                onClick={scrollToLoanType}
+              >
+                Loan Types
               </p>
               <p
                 className="text-[#8C939C]  cursor-pointer hover:text-gray-900"

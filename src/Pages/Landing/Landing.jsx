@@ -19,7 +19,7 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <Navbar scrollToAbout={scrollToAbout}/>
+      <Navbar scrollToAbout={scrollToAbout} scrollToLoanType={scrollToLoanType}/>
 
       {/* Hero Section */}
       <HeroSection  scrollToLoanType={scrollToLoanType} />

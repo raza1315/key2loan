@@ -60,7 +60,7 @@ const timeline = [
 export default function About({ aboutRef, scrollToLoanType }) {
   return (
     <section
-      className="relative overflow-hidden py-24 sm:py-30 sm:px-0 px-2"
+      className="relative overflow-hidden pt-24 sm:pt-18 pb-10 sm:px-0 px-2"
       ref={aboutRef}
     >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4ade8030_1px,transparent_1px),linear-gradient(to_bottom,#4ade8030_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
@@ -123,9 +123,9 @@ export default function About({ aboutRef, scrollToLoanType }) {
         </div>
 
         {/* Values */}
-        <div className="space-y-12">
+        <div className="space-y-10">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl -mt-10">
               Our Core Values
             </h2>
             <p className="mt-4 text-lg text-[#828993]">
@@ -154,9 +154,9 @@ export default function About({ aboutRef, scrollToLoanType }) {
         </div>
 
         {/* Timeline */}
-        <div className="space-y-12">
+        <div className="space-y-10">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl -mt-10">
               Our Journey
             </h2>
             <p className="mt-4 text-lg text-[#828993]">
@@ -165,7 +165,7 @@ export default function About({ aboutRef, scrollToLoanType }) {
           </div>
           <div className="relative">
             <div className="absolute left-1/2 h-full w-0.5 -translate-x-1/2 bg-emerald-200"></div>
-            <div className="space-y-12">
+            <div className="space-y-4">
               {timeline.map((item, index) => (
                 <div
                   key={index}
@@ -192,7 +192,7 @@ export default function About({ aboutRef, scrollToLoanType }) {
         </div>
 
         {/* CTA */}
-        <div className="relative rounded-3xl bg-gradient-to-r from-emerald-600 to-green-600 px-6 py-12 sm:px-12 sm:py-16">
+        <div className="relative rounded-3xl bg-gradient-to-r from-emerald-600 to-green-600 px-6 py-12 sm:px-12 sm:py-14">
           <div className="relative z-10 mx-auto max-w-2xl text-center text-white">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Ready to Start Your Financial Journey?

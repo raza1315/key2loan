@@ -84,7 +84,7 @@ export default function EmiCalculator() {
   const COLORS = ['#10B981', '#EF4444'] // emerald-500 and red-500
 
   return (
-    <section className="pb-16 pt-6 px-4 bg-white">
+    <section className="pb-10 pt-6 px-4 bg-white">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-3xl font-semibold text-center mb-12 tracking-wide">
           EMI Calculator

@@ -24,7 +24,7 @@ export default function ChannelPartners() {
   ];
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-14 px-4">
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
           Our Channel Partners

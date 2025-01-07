@@ -3,23 +3,23 @@ export default function ChannelPartners() {
   const partners = [
     {
       name: "TATA CAPITAL",
-      logo: "/tata.png",
+      logo: "/Tata_Capital_Logo.png",
     },
     {
       name: "BAJAJ FINSERV",
-      logo: "/bajaj.png",
+      logo: "/Bajaj_Finserve_Logo.jpg",
     },
     {
       name: "POONAWALLA FINCORP",
-      logo: "/poonawala.png",
+      logo: "/Poonawalla_Fincorp_Limited_Logo.jpg",
     },
     {
       name: "L&T Finance",
-      logo: "/lt.png",
+      logo: "/LT_Finance_Logo.png",
     },
     {
       name: "ADITYA BIRLA CAPITAL",
-      logo: "/aditya.png",
+      logo: "/Aditya Birla_Logo.png",
     },
   ];
 

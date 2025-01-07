@@ -35,7 +35,7 @@ export default function Navbar({ scrollToAbout }) {
               }}
               src="/key2loanlogo.png"
               alt="Key2Loan"
-              className="h-10 w-auto scale-[1.65]"
+              className="h-10 w-auto scale-[2.35] mt-2"
             />
           </div>
           <div className="flex items-center space-x-8 w-1/3">

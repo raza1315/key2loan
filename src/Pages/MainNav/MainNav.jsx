@@ -27,7 +27,7 @@ export default function MainNav() {
     >
       <div className=" mx-auto  px-10 py-4">
         <div className="flex items-center justify-between">
-          <div className="w-1/3 flex items-center gap-10">
+          <div className="w-1/3 flex items-center gap-14">
             <img
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -35,7 +35,7 @@ export default function MainNav() {
               }}
               src="/key2loanlogo.png"
               alt="Key2Loan"
-              className="h-10 w-auto scale-[1.65]"
+              className="h-10 w-auto scale-[2.35] mt-2"
             />
             <p
               className="text-[#8C939C] font-medium cursor-pointer hover:text-gray-900 transition-colors sm:flex hidden"

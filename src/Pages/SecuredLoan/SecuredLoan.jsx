@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { CheckCircle } from 'lucide-react';
 import MainNav from "../MainNav/MainNav";
-
 export default function SecuredLoan() {
   const [formData, setFormData] = useState({
     name: "",
@@ -31,122 +31,96 @@ export default function SecuredLoan() {
   };
 
   return (
-    <>
-      {/* Main Navbar */}
+    <div className="bg-gray-50 min-h-screen">
       <MainNav />
-
-      <div className="max-w-4xl mx-auto p-6">
-        <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
-          <img
-            src="/placeholder.svg?height=256&width=896"
-            alt="Business people discussing secured loans"
-            layout="fill"
-            objectFit="cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#004D40]/80 to-transparent flex items-center">
-            <h1 className="text-4xl font-bold text-white ml-8">
-              Secured Business Loans
+      {/* Hero Section */}
+      <div className="relative h-[300px] w-3/4 mx-auto mb-12">
+        <img
+          src="/securedloan.png"
+          alt="Business people discussing secured loans"
+          className="w-full h-full object-cover blur-[3px] opacity-[0.9]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#21A26B]/80 to-transparent flex items-center">
+          <div className="container mx-auto px-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white max-w-2xl">
+              Secured Business Loan
             </h1>
           </div>
         </div>
+      </div>
 
+      <div className="container mx-auto px-6 pb-12">
         {/* Features & Benefits Section */}
-        <div className="mb-10">
-          <h2 className="text-2xl font-semibold text-[#004D40] mb-6">
+        <div className="mb-16">
+          <h2 className="text-3xl font-semibold text-[#21A26B] mb-8 text-center">
             Features & Benefits
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-[#00A67E]/20">
-              <div className="w-16 h-16 mb-4 relative">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Higher Loan Amount",
+                description: "Access higher loan sums based on collateral stipulations",
+                image: "https://picsum.photos/200/200?random=1"
+              },
+              {
+                title: "Lower Interest Rate",
+                description: "Reduced interest rates compared to unsecured loans",
+                image: "https://picsum.photos/200/200?random=2"
+              },
+              {
+                title: "Quick Disbursement",
+                description: "Get funds within 7 business days",
+                image: "https://picsum.photos/200/200?random=3"
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white rounded-lg p-6 shadow-lg border border-[#21A26B]/20 transition-all hover:shadow-xl hover:-translate-y-1">
                 <img
-                  src="/placeholder.svg?height=64&width=64"
-                  alt="Higher Loan Amount"
-                  layout="fill"
-                  objectFit="contain"
+                  src={feature.image}
+                  alt={feature.title}
+                  className="w-16 h-16 mb-4 rounded-full object-cover"
                 />
+                <h3 className="text-xl font-semibold text-[#21A26B] mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-[#90969E]">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-lg font-semibold text-[#00A67E] mb-2">
-                Higher Loan Amount
-              </h3>
-              <p className="text-gray-700">
-                Enables access to higher loan sums based on collateral
-                stipulations
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-[#00A67E]/20">
-              <div className="w-16 h-16 mb-4 relative">
-                <img
-                  src="/placeholder.svg?height=64&width=64"
-                  alt="Lower Interest Rate"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[#00A67E] mb-2">
-                Lower Interest Rate
-              </h3>
-              <p className="text-gray-700">
-                Generally presents reduced interest rates compared to loans
-                without security
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-[#00A67E]/20">
-              <div className="w-16 h-16 mb-4 relative">
-                <img
-                  src="/placeholder.svg?height=64&width=64"
-                  alt="Quick Disbursement"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[#00A67E] mb-2">
-                Quick Disbursement
-              </h3>
-              <p className="text-gray-700">
-                Facilitating immediate access to funds within 7 business days
-              </p>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Eligibility Criteria Section */}
-        <div className="bg-[#004D40] text-white rounded-lg p-8 mb-10 relative overflow-hidden">
+        <div className="bg-[#21A26B] text-white rounded-lg p-8 mb-16 relative overflow-hidden shadow-lg">
           <div className="relative z-10">
-            <h2 className="text-2xl font-semibold mb-6">
+            <h2 className="text-3xl font-semibold mb-6">
               Eligibility Criteria
             </h2>
             <ul className="space-y-4">
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[#00A67E] rounded-full"></div>
-                <span>
-                  Collateral Required: Any kind of fixed assets including plots
-                </span>
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[#00A67E] rounded-full"></div>
-                <span>Age: Borrower should be aged between 21-70</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[#00A67E] rounded-full"></div>
-                <span>Credit Score Required: Upto 750</span>
-              </li>
+              {[
+                "Collateral Required: Any kind of fixed assets including plots",
+                "Age: Borrower should be aged between 21-70",
+                "Credit Score Required: Up to 750"
+              ].map((criterion, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                  <span className="text-lg">{criterion}</span>
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="absolute right-0 bottom-0 w-40 h-40 opacity-10">
+          <div className="absolute right-0 bottom-0 w-64 h-64 opacity-50">
             <img
-              src="/placeholder.svg?height=160&width=160"
+              src="/Secured-Loan.jpg"
               alt="Eligibility"
-              layout="fill"
-              objectFit="contain"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
 
         {/* Application Form */}
-        <div className="bg-white rounded-lg p-8 shadow-lg border border-[#00A67E]/20">
-          <h2 className="text-2xl font-semibold text-[#004D40] mb-6">
+        <div className="bg-white rounded-lg p-8 shadow-lg border border-[#21A26B]/20 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-semibold text-[#21A26B] mb-8 text-center">
             Apply Now
           </h2>
 
@@ -154,83 +128,49 @@ export default function SecuredLoan() {
             <div className="text-center py-8">
               <div className="w-24 h-24 mx-auto mb-4 relative">
                 <img
-                  src="/placeholder.svg?height=96&width=96"
+                  src="https://picsum.photos/200/200?random=5"
                   alt="Success"
-                  layout="fill"
-                  objectFit="contain"
+                  className="w-full h-full object-contain rounded-full"
                 />
               </div>
-              <div className="text-[#00A67E] text-lg font-semibold mb-2">
+              <div className="text-[#21A26B] text-2xl font-semibold mb-4">
                 Thank you for your application!
               </div>
-              <p className="text-gray-600">
-                We will contact you shortly to discuss your secured loan
-                requirements.
+              <p className="text-gray-600 text-lg">
+                We will contact you shortly to discuss your secured loan requirements.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A67E] focus:border-transparent outline-none transition-colors"
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A67E] focus:border-transparent outline-none transition-colors"
-                  placeholder="Enter your email address"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A67E] focus:border-transparent outline-none transition-colors"
-                  placeholder="Enter your phone number"
-                />
-              </div>
+              {[
+                { name: "name", label: "Full Name", type: "text", placeholder: "Enter your full name" },
+                { name: "email", label: "Email Address", type: "email", placeholder: "Enter your email address" },
+                { name: "phone", label: "Phone Number", type: "tel", placeholder: "Enter your phone number" }
+              ].map((field) => (
+                <div key={field.name}>
+                  <label
+                    htmlFor={field.name}
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    {field.label}
+                  </label>
+                  <input
+                    type={field.type}
+                    id={field.name}
+                    name={field.name}
+                    required
+                    // value={formData[field.name as keyof typeof formData]}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#21A26B] focus:border-transparent outline-none transition-colors"
+                    placeholder={field.placeholder}
+                  />
+                </div>
+              ))}
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#00A67E] text-white px-8 py-3 rounded-lg hover:bg-[#00A67E]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#21A26B] text-white px-8 py-3 rounded-lg hover:bg-[#21A26B]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-lg font-semibold"
               >
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </button>
@@ -238,6 +178,7 @@ export default function SecuredLoan() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
+

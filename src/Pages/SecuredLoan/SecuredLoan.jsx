@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   CheckCircle,
   DollarSign,
@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import MainNav from "../MainNav/MainNav";
 export default function SecuredLoan() {
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,7 +31,13 @@ export default function SecuredLoan() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!documents.aadhar || !documents.pan || !documents.gst || !documents.incomeProof || !documents.financialDetails){
+    if (
+      !documents.aadhar ||
+      !documents.pan ||
+      !documents.gst ||
+      !documents.incomeProof ||
+      !documents.financialDetails
+    ) {
       alert("Please upload all the documents");
       return;
     }
@@ -80,17 +87,45 @@ export default function SecuredLoan() {
       {/* Main Navbar */}
       <MainNav />
       {/* Hero Section */}
-      <div className="relative h-[320px] mb-12">
-        <img
-          src="/securedloan.png"
-          alt="Business people discussing secured loans"
-          className="w-full h-full object-cover blur-[3px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#21A26B]/80 to-transparent flex items-center">
-          <div className="container mx-auto px-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-white max-w-2xl">
-              Secured Business Loan
+      <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+              <span className="block">Secured</span>
+              <span className="block text-[#21A26B]">Business Loan</span>
             </h1>
+            <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+              A secured business loan is a type of loan where the borrower
+              pledges an asset (called collateral) to the lender as security for
+              the loan. If the borrower fails to repay the loan, the lender has
+              the legal right to seize and sell the collateral to recover the
+              outstanding amount
+            </p>
+            <div className="mt-5 sm:mt-8 sm:flex sm:justify-start">
+              <div
+                className="rounded-md shadow"
+                onClick={() => {
+                  formRef.current.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                <a
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#21A26B] hover:bg-[#1c8f5c] md:py-4 md:text-lg md:px-10"
+                >
+                  Apply Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="relative h-64 sm:h-72 md:h-96 lg:h-full">
+            <img
+              src="/securedloan.png"
+              alt="Business people discussing secured loans"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg shadow-xl h-full w-full"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#21A26B]/20 to-transparent rounded-lg"></div>
           </div>
         </div>
       </div>
@@ -166,7 +201,10 @@ export default function SecuredLoan() {
         </div>
 
         {/* Application Form */}
-        <div className="bg-white rounded-lg p-8 shadow-lg border border-[#21A26B]/20 max-w-3xl mx-auto">
+        <div
+          className="bg-white rounded-lg p-8 shadow-lg border border-[#21A26B]/20 max-w-3xl mx-auto"
+          ref={formRef}
+        >
           <h2 className="text-3xl font-semibold text-[#21A26B] mb-8 text-center">
             Apply Now
           </h2>

@@ -8,9 +8,24 @@ export default function EmiCalculator() {
   const [result, setResult] = useState(null)
   const [error, setError] = useState('')
 
+  const formatIndianNumber = (value) => {
+    const number = value.replace(/,/g, '')
+    const parts = number.split('.')
+    parts[0] = parts[0].replace(/(\d)(?=(\d\d)+\d$)/g, "$1,")
+    return parts.join('.')
+  }
+
+  const handleLoanAmountChange = (e) => {
+    const value = e.target.value.replace(/,/g, '')
+    if (value === '' || /^\d+$/.test(value)) {
+      setLoanAmount(formatIndianNumber(value))
+    }
+  }
+
   const validateInputs = (amount, rate, months) => {
-    if (amount < 100000 || amount > 1000000000) {
-      setError('Loan amount must be between 1 lakh and 100 crore')
+    const numericAmount = Number(amount.replace(/,/g, ''))
+    if (numericAmount < 100000 || numericAmount > 1000000000) {
+      setError('Loan amount must be between 1 Lakhs and 100 Crores')
       return false
     }
     if (rate < 1 || rate > 50) {
@@ -26,11 +41,11 @@ export default function EmiCalculator() {
   }
 
   const calculateEMI = () => {
-    const amount = Number(loanAmount)
+    const amount = Number(loanAmount.replace(/,/g, ''))
     const rate = Number(interestRate)
     const months = Number(tenure)
 
-    if (!validateInputs(amount, rate, months)) {
+    if (!validateInputs(loanAmount, rate, months)) {
       setResult(null)
       return
     }
@@ -87,10 +102,10 @@ export default function EmiCalculator() {
                 </label>
                 <input
                   id="loanAmount"
-                  type="number"
+                  type="text"
                   value={loanAmount}
-                  onChange={(e) => setLoanAmount(e.target.value)}
-                  placeholder="Enter amount (1L to 100Cr)"
+                  onChange={handleLoanAmountChange}
+                  placeholder="Enter amount (1,00,000 to 1,00,00,00,000)"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
                 />
               </div>

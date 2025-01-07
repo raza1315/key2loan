@@ -4,26 +4,20 @@ import {
   DollarSign,
   Percent,
   Clock,
-  Upload,
   User,
   Mail,
   Phone,
 } from "lucide-react";
 import MainNav from "../MainNav/MainNav";
-export default function UnsecuredLoan() {
+
+export default function SecuredLoan() {
   const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-  });
-
-  const [documents, setDocuments] = useState({
-    aadhar: null,
-    pan: null,
-    gst: null,
-    incomeProof: null,
-    financialDetails: null,
+    businessType: "",
+    otherBusinessType: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,16 +25,6 @@ export default function UnsecuredLoan() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      !documents.aadhar ||
-      !documents.pan ||
-      !documents.gst ||
-      !documents.incomeProof ||
-      !documents.financialDetails
-    ) {
-      alert("Please upload all the documents");
-      return;
-    }
     setIsSubmitting(true);
 
     // Simulate API call
@@ -48,44 +32,31 @@ export default function UnsecuredLoan() {
 
     setSubmitted(true);
     setIsSubmitting(false);
-    setFormData({ name: "", email: "", phone: "" });
-    setDocuments({
-      aadhar: null,
-      pan: null,
-      gst: null,
-      incomeProof: null,
-      financialDetails: null,
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      businessType: "",
+      otherBusinessType: "",
     });
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
-  };
 
-  const handleFileChange = (e) => {
-    if (e.target.files) {
-      setDocuments((prev) => ({
-        ...prev,
-        [e.target.name]: e.target.files[0] || null,
-      }));
+    if (name === "businessType" && value !== "others") {
+      setFormData((prev) => ({ ...prev, otherBusinessType: "" }));
     }
   };
 
-  const requiredDocuments = [
-    { name: "aadhar", label: "Aadhar Card" },
-    { name: "pan", label: "PAN Card" },
-    { name: "gst", label: "GST Certificate" },
-    { name: "incomeProof", label: "Income Proof" },
-    { name: "financialDetails", label: "Financial Details of the Company" },
-  ];
-
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Main Navbar */}
       <MainNav />
+
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -108,9 +79,7 @@ export default function UnsecuredLoan() {
                   formRef.current.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                <a
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#21A26B] hover:bg-[#1c8f5c] md:py-4 md:text-lg md:px-10"
-                >
+                <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#21A26B] hover:bg-[#1c8f5c] md:py-4 md:text-lg md:px-10">
                   Apply Now
                 </a>
               </div>
@@ -200,12 +169,12 @@ export default function UnsecuredLoan() {
             />
           </div>
         </div>
-
         {/* Application Form */}
-        <div className="bg-white rounded-lg p-8 shadow-lg border border-[#21A26B]/20 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-semibold text-[#21A26B] mb-8 text-center"
+        <div
+          className="bg-white rounded-lg p-8 shadow-lg border border-[#21A26B]/20 max-w-3xl mx-auto"
           ref={formRef}
-          >
+        >
+          <h2 className="text-3xl font-semibold text-[#21A26B] mb-8 text-center">
             Apply Now
           </h2>
 
@@ -243,7 +212,7 @@ export default function UnsecuredLoan() {
                   {
                     name: "phone",
                     label: "Phone Number",
-                    type: "tel",
+                    type: "number",
                     placeholder: "Enter your phone number",
                     icon: Phone,
                   },
@@ -272,43 +241,50 @@ export default function UnsecuredLoan() {
                 ))}
               </div>
 
-              <div>
-                <h3 className="text-lg font-semibold text-[#21A26B] mb-4">
-                  Required Documents
-                </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {requiredDocuments.map((doc) => (
-                    <div key={doc.name} className="relative">
-                      <label
-                        htmlFor={doc.name}
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                      >
-                        {doc.label}
-                      </label>
-                      <div className="relative">
-                        <input
-                          type="file"
-                          id={doc.name}
-                          name={doc.name}
-                          required
-                          onChange={handleFileChange}
-                          className="hidden"
-                        />
-                        <label
-                          htmlFor={doc.name}
-                          className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-colors"
-                        >
-                          <Upload className="w-5 h-5 mr-2 text-gray-400" />
-                          <span className="text-sm text-gray-600">
-                            {documents[doc.name]
-                              ? documents[doc.name]?.name
-                              : `Upload ${doc.label}`}
-                          </span>
-                        </label>
-                      </div>
-                    </div>
-                  ))}
+              <div className="space-y-4">
+                <div>
+                  <label
+                    htmlFor="businessType"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Business Type
+                  </label>
+                  <select
+                    id="businessType"
+                    name="businessType"
+                    value={formData.businessType}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#21A26B] focus:border-transparent outline-none transition-colors"
+                  >
+                    <option value="">Select Business Type</option>
+                    <option value="manufacturing">Manufacturing</option>
+                    <option value="trading">Trading</option>
+                    <option value="hospitality">Hospitality</option>
+                    <option value="agriculture">Agriculture</option>
+                    <option value="others">Others</option>
+                  </select>
                 </div>
+                {formData.businessType === "others" && (
+                  <div>
+                    <label
+                      htmlFor="otherBusinessType"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Specify Other Business Type
+                    </label>
+                    <input
+                      type="text"
+                      id="otherBusinessType"
+                      name="otherBusinessType"
+                      value={formData.otherBusinessType}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#21A26B] focus:border-transparent outline-none transition-colors"
+                      placeholder="Enter your business type"
+                    />
+                  </div>
+                )}
               </div>
 
               <button

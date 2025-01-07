@@ -49,7 +49,7 @@ export default function Navbar({ scrollToAbout }) {
                   className="text-[#8C939C]  cursor-pointer hover:text-gray-900 flex items-center transition-colors"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
-                  Services
+                  Loan Types
                   <svg
                     className={`w-4 h-4 ml-1 transform transition-transform ${
                       isServicesOpen ? "rotate-180" : ""
@@ -68,14 +68,17 @@ export default function Navbar({ scrollToAbout }) {
                 </button>
                 {isServicesOpen && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
-                    <p className="block px-4 py-2 text-[#8C939C]  cursor-pointer hover:bg-gray-100 transition-colors">
-                      Service 1
+                    <p
+                      className="block px-4 py-2 text-[#8C939C] text-sm cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => navigate("/securedLoan")}
+                    >
+                      Secured Business Loan
                     </p>
-                    <p className="block px-4 py-2 text-[#8C939C]  cursor-pointer hover:bg-gray-100 transition-colors">
-                      Service 2
-                    </p>
-                    <p className="block px-4 py-2 text-[#8C939C]  cursor-pointer hover:bg-gray-100 transition-colors">
-                      Service 3
+                    <p
+                      className="block px-4 py-2 text-[#8C939C] text-sm  cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => navigate("/unsecuredLoan")}
+                    >
+                      Unsecured Business Loan
                     </p>
                   </div>
                 )}
@@ -90,8 +93,9 @@ export default function Navbar({ scrollToAbout }) {
           </div>
 
           <div className="hidden md:flex items-center space-x-10 font-medium">
-            <p className="text-[#8C939C] cursor-pointer hover:text-gray-900 transition-colors"
-            onClick={() => navigate("/apply")}
+            <p
+              className="text-[#8C939C] cursor-pointer hover:text-gray-900 transition-colors"
+              onClick={() => navigate("/apply")}
             >
               Become our partner
             </p>

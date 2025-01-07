@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    author: "Sarah Chen",
+    author: "Siddharth Shankar",
     role: "Small Business Owner",
     content:
       "The seamless experience and quick approval process made everything so easy. Their support team was incredibly helpful throughout.",
@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     id: 2,
-    author: "Marcus Rodriguez",
+    author: "Akshat",
     role: "Tech Entrepreneur",
     content:
       "The low interest rates and transparent terms helped me expand my business without worrying about hidden fees or complicated processes.",
@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     id: 3,
-    author: "Emily Parker",
+    author: "Riya Sharma",
     role: "Restaurant Owner",
     content:
       "Their customer service is exceptional. They guided me through every step and made the entire funding process stress-free.",
@@ -31,7 +31,7 @@ const testimonials = [
   },
   {
     id: 4,
-    author: "David Kim",
+    author: "Raza",
     role: "Retail Store Owner",
     content:
       "The flexibility of their loan terms and the professional guidance made all the difference for my business growth plans.",
@@ -40,7 +40,7 @@ const testimonials = [
   },
   {
     id: 5,
-    author: "Lisa Thompson",
+    author: "Zeba Khan",
     role: "E-commerce Founder",
     content:
       "Their digital-first approach and quick processing saved me valuable time. The entire experience exceeded my expectations.",
@@ -49,7 +49,7 @@ const testimonials = [
   },
   {
     id: 6,
-    author: "Michael Foster",
+    author: "Aman Gupta",
     role: "Startup Founder",
     content:
       "The transparent process and competitive rates made this the clear choice for my business funding needs.",
@@ -93,11 +93,11 @@ const TestimonialCarousel = () => {
             "{testimonial.content}"
           </p>
           <div className="flex items-center gap-4">
-            <img
+            {/* <img
               src={testimonial.image}
               alt={testimonial.author}
               className="w-12 h-12 rounded-full object-cover border-2 border-green-100"
-            />
+            /> */}
             <div>
               <h4 className="text-base font-semibold text-green-800">
                 {testimonial.author}

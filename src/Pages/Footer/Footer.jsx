@@ -65,14 +65,6 @@ export default function Footer() {
                   Contact
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm hover:text-white transition-colors"
-                >
-                  Blog
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -94,14 +86,6 @@ export default function Footer() {
                   className="text-sm hover:text-white transition-colors"
                 >
                   Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm hover:text-white transition-colors"
-                >
-                  Cookie Policy
                 </a>
               </li>
             </ul>

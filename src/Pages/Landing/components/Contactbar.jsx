@@ -1,6 +1,8 @@
 import React from "react";
 import { Phone, Mail } from "lucide-react";
 function Contactbar() {
+  // Add your email id here:
+  const emailId = "contact@key2loan.com";
   return (
     <div className="border-b bg-[#074E3B]">
       <div className="container mx-auto px-4 py-2">
@@ -14,8 +16,10 @@ function Contactbar() {
               +91807xxxxxxx
             </p>
             <p
-              href="mailto:contact@key2loan.com"
               className="text-[#9FB7AF]  hover:text-white flex items-center cursor-pointer"
+              onClick={() => {
+                window.location.href = `mailto:${emailId}`;
+              }}
             >
               <Mail className="w-4 h-4 mr-2" />
               contact@key2loan.com

@@ -10,10 +10,10 @@ import {
 } from "lucide-react";
 
 const stats = [
-  { label: "Years Experience", value: "1+" },
-  { label: "Happy Clients", value: "500+" },
-  { label: "Loan Amount", value: "₹10Cr+" },
-  { label: "Team Members", value: "50+" },
+  { label: "idhar change karna hain", value: "10+" },
+  { label: "Happy Clients", value: "50+" },
+  { label: "Disbursed Amount", value: "₹10Cr+" },
+  { label: "Team Members", value: "30+" },
 ];
 
 const values = [
@@ -57,9 +57,9 @@ const timeline = [
   },
 ];
 
-export default function About() {
+export default function About({aboutRef}) {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-30 sm:px-0 px-2">
+    <section className="relative overflow-hidden py-24 sm:py-30 sm:px-0 px-2" ref={aboutRef}>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4ade8030_1px,transparent_1px),linear-gradient(to_bottom,#4ade8030_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
       <div className="container relative mx-auto px-4 space-y-24">
         {/* Hero Section */}

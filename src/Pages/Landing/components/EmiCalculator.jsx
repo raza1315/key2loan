@@ -72,7 +72,7 @@ export default function EmiCalculator() {
     <section className="pb-16 pt-6 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl font-semibold text-center mb-12 tracking-wide">
-          Business Loan EMI Calculator
+          EMI Calculator
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Input Card */}

@@ -6,18 +6,23 @@ import WhyKey2Loan from "./components/WhyKey2Loan";
 import ChannelPartners from "./components/ChannelPartners";
 import TestimonialCarousel from "./components/TestimonialCarousel";
 import FAQ from "./components/FAQs";
+import { useRef } from "react";
 export default function Landing() {
+  const aboutRef=useRef(null);
+  const scrollToAbout = () => {
+    aboutRef.current.scrollIntoView({ behavior: "smooth" });
+  }
   return (
     <div className="min-h-screen bg-white">
 
       {/* Navigation */}
-      <Navbar />
+      <Navbar scrollToAbout={scrollToAbout} />
 
       {/* Hero Section */}
       <HeroSection />
 
       {/* About Section */}
-      <About />
+      <About aboutRef={aboutRef}/>
 
       {/* Types of Loan */}
       <Loantypesection />
